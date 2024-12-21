@@ -1,0 +1,26 @@
+mixin product-item(item)
+    a(href=item.link class="")
+        div(class="aspect-square bg-[#F0EEED] sm:rounded-[20px] rounded-[13px] truncate sm:mb-[20px] mb-[12px]")
+            img(
+                src=item.image 
+                alt=item.title 
+                class="w-[100%] h-[100%] object-cover"
+            )
+        h3(class="font-[700] sm:text-[18px] text-[14px] text-primary sm:mb-[10px] mb-[6px]") #{item.title}
+        div(class="flex items-center gap-x-[13px] sm:mb-[10px] mb-[6px]")
+            div(class="inline-flex sm:gap-x-[5px] gap-x-[4px] sm:text-[18px] text-[15px] text-[#FFC633]")
+                - for(var i = 1; i <= item.stars; i++)
+                    <i class="fa-solid fa-star"></i>
+                - for(var j = item.stars + 1; j <= 5; j++)
+                    <i class="fa-regular fa-star"></i>
+            div(class="font-[400] sm:text-[14px] text-[12px] text-[#00000099]")
+                | #{item.stars}/5
+        div(class="flex flex-wrap items-center gap-x-[10px] gap-y-[6px]")
+            div(class="font-[700] sm:text-[18px] text-[14px] text-black")
+            | #{item.discount > 0 ? item.priceSpecial.toLocaleString() : item.price.toLocaleString("vi-VN")}đ
+            if(item.discount > 0)
+                div(class="font-[700] sm:text-[14px] text-[12px] text-[#00000099] line-through")
+                    | #{item.price.toLocaleString("vi-VN")}đ
+                div(class="bg-[#FF33331A] rounded-[62px] sm:py-[6px] py-[3.5px] sm:px-[12px] px-[6.5px] font-[500] sm:text-[12px] text-[10px] text-[#FF3333]")
+                    | -#{item.discount}%
+

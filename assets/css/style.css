@@ -7,3 +7,9 @@
 input {
     outline: none;
 }
+
+.sm\:border-r:last-child {
+    border-right: 0;
+    padding-right: 0;
+    margin-right: 0;
+}

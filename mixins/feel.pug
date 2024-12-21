@@ -1,0 +1,14 @@
+mixin fell-item(item)
+    a(href=item.link class="sm:py-[28px] sm:px-[32px] py-[24px] px-[24px] border border-[#0000001A] rounded-[20px]")
+        div(class="")
+            div(class="text-[#FFC633]")
+                - for(var i = 1; i <= item.stars; i++)
+                    <i class="fa-solid fa-star"></i>
+            div(class="flex gap-[4px]")
+                h3(class="my-[15px] md:text-[20px] text-[16px] font-[700] text-black") #{item.name}
+
+                img(src="assets/images/check.svg")
+
+            div(class="md:text-[16px] text-[14px] font-[400] text-[#00000099]") #{item.desc}
+
+            

@@ -1,0 +1,11 @@
+mixin banner-item(item, index)
+    a(
+        href=item.link 
+        class=("block relative rounded-[20px] truncate sm:h-[289px] h-[190px] " + (index == 1 || index == 2 ? "lg:col-span-2" : ""))
+    )
+        img(
+            src=item.image
+            alt=item.title
+            class="w-[100%] h-[100%] object-cover"
+        )
+        h3(class="absolute top-[26px] left-[36px] font-[700] text-[36px] text-black") #{item.title}
