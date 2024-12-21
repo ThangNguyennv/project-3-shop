@@ -2,6 +2,7 @@ include ../mixins/statistic.pug
 include ../mixins/product.pug
 include ../mixins/banner.pug
 include ../mixins/feel.pug
+include ../mixins/imgPay.pug
 
 doctype html 
 html 
@@ -216,14 +217,14 @@ html
 
     //- Section-6
     -
-      var fellCustomer = [
+      var feelCustomer = [
         {
           stars: 5,
           name: "Le Van A",
           desc: '"Tôi rất ngạc nhiên trước chất lượng và kiểu dáng của những bộ quần áo từ 28.SHOP. Từ trang phục thường ngày đến trang phục thanh lịch, mọi món đồ tôi mua đều vượt quá sự mong đợi của tôi."',
           link: "#"
         },
-       {
+        {
           stars: 5,
           name: "Le Van B",
           desc: '"Việc tìm kiếm quần áo phù hợp với phong cách cá nhân của tôi từng là một thử thách cho đến khi tôi khám phá ra 28.SHOP. Hàng loạt lựa chọn mà họ cung cấp thực sự đáng chú ý."',
@@ -242,20 +243,109 @@ html
           h2(class="flex flex-wrap font-[700] sm:text-[48px] text-[32px] text-primary sm:mb-[38px] mb-[32px]") CẢM NHẬN CỦA KHÁCH HÀNG
 
           div(class="grid lg:grid-cols-3 md:grid-cols-2 gap-[20px]")
-            each item in fellCustomer 
+            each item in feelCustomer 
               +fell-item(item)
     //-End Section-6
 
     //- Section-7
-    div(class="")
+    div(class="relative")
       div(class="container mx-auto px-[16px]")
-        div(class="flex justify-center items-center bg-primary rounded-[20px] px-[64px] py-[38px]")
-          div(class="text-[#FFFFFF] text-[40px] font-[700]")
+        div(class="flex flex-wrap items-center justify-between bg-primary rounded-[20px] md:px-[64px] px-[24px] md:py-[38px] py-[32px]")
+          h2(class="text-[#FFFFFF] xl:text-[40px] text-[32px] font-[700] xl:w-[551px] lg:w-[450px] w-[100%] lg:mb-[0] mb-[20px]")
             | CẬP NHẬT VỀ ƯU ĐÃI MỚI NHẤT CỦA CHÚNG TÔI
-          div(class="flex flex-wrap gap-y-[14px]")
-            form(action="" class="flex gap-[12px] py-[12px] bg-[#FFFFFF] rounded-[62px] text-[16px] font-[400] text-[red]")
-              div(class="") <i class="fa-regular fa-envelope"></i>
-              input(type="" placeholder="Nhập email của bạn..." class="flex-1")
-
-            a(href="#" class="bg-[#FFFFFF] rounded-[62px] text-[16px] font-[500]") Đăng Ký Nhận Tin
+          form(class="flex flex-col sm:gap-[14px] gap-[12px] lg:w-[349px] w-[100%]")
+            div(class="flex gap-[12px] text-center items-center px-[16px] py-[12px] bg-[#FFFFFF] rounded-[62px] sm:text-[16px] text-[14px] font-[400]")
+              <i class="fa-regular fa-envelope text-[20px] text-[#00000066]"></i>
+              input(
+                type="email" 
+                placeholder="Nhập email của bạn..." 
+                class="flex-1")
+            button(class="text-center py-[12px] bg-[#FFFFFF] rounded-[62px] sm:text-[16px] text-[14px] font-[500]") Đăng Ký Nhận Tin
     //- End Section-7
+
+    //- Footer
+    -
+      var imgList = [
+        {
+          image: "assets/images/Visa.svg"
+        },
+        {
+          image: "assets/images/Mastercard.svg"
+        },
+        {
+          image: "assets/images/Paypal.svg"
+        },
+        {
+          image: "assets/images/ApplePay.svg"
+        },
+        {
+          image: "assets/images/GPay.svg"
+        }
+      ];
+    footer(class="bg-[#F0F0F0] pt-[148px] lg:pb-[84px] pb-[30px] mt-[-98px]")
+      div(class="container mx-auto px-[16px]")
+        div(class="flex flex-wrap justify-between pb-[48px] border-b border-[#0000001A]")
+          div(class="flex flex-col lg:gap-[25px] gap-[15px] lg:w-[248px] w-[100%] lg:mb-[0] mb-[40px]")
+            h3(class="sm:text-[34px] text-[28px] text-primary font-[700]") 28.SHOP
+            p(class="text-[14px] font-[400] text-[#00000099]") Chúng tôi có những bộ quần áo phù hợp với phong cách của bạn và bạn có thể tự hào khi mặc.
+            div(class="flex flex-wrap gap-[12px]")
+              a(href="#" target="_blank" class="w-[28px] h-[28px] bg-white hover:bg-black border border-[#00000033] hover:border-black rounded-[50%] text-[12px] hover:text-white text-black inline-flex items-center justify-center") <i class="fa-brands fa-twitter"></i>
+              a(href="#" target="_blank" class="w-[28px] h-[28px] bg-white hover:bg-black border border-[#00000033] hover:border-black rounded-[50%] text-[12px] hover:text-white text-black inline-flex items-center justify-center") <i class="fa-brands fa-facebook"></i>
+              a(href="#" target="_blank" class="w-[28px] h-[28px] bg-white hover:bg-black border border-[#00000033] hover:border-black rounded-[50%] text-[12px] hover:text-white text-black inline-flex items-center justify-center") <i class="fa-brands fa-instagram"></i>
+
+          div(class="sm:w-auto w-[48%]")
+            h2(class="text-black font-[500] uppercase mb-[26px] text-[16px]") CÔNG TY
+            ul(class="flex flex-col gap-[16px]") 
+              li(class="")
+                a(href="#" class="text-[16px] hover:text-[black] text-[#00000099] font-[400]") Giới Thiệu       
+              li(class="")
+                a(href="#" class="text-[16px] hover:text-[black] text-[#00000099] font-[400]") Sản Phẩm          
+              li(class="")
+                a(href="#" class="text-[16px] hover:text-[black] text-[#00000099] font-[400]") Công Việc   
+              li(class="")
+                a(href="#" class="text-[16px] hover:text-[black] text-[#00000099] font-[400]") Việc Làm  
+
+          div(class="sm:w-auto w-[48%]")
+            h2(class="text-black font-[500] uppercase mb-[26px]") Trợ giúp
+            ul(class="flex flex-col gap-[16px]") 
+              li(class="")
+                a(href="#" class="text-[16px] hover:text-[black] text-[#00000099] font-[400]") Hỗ Trợ Khách Hàng       
+              li(class="")
+                a(href="#" class="text-[16px] hover:text-[black] text-[#00000099] font-[400]") Thông Tin Đơn Hàng          
+              li(class="")
+                a(href="#" class="text-[16px] hover:text-[black] text-[#00000099] font-[400]") Điều Khoản & Điều Kiện   
+              li(class="")
+                a(href="#" class="text-[16px] hover:text-[black] text-[#00000099] font-[400]") Chính Sách  
+
+          div(class="sm:w-auto w-[48%] sm:mt-[0] mt-[32px]")
+            h2(class="text-black font-[500] uppercase mb-[26px]") FAQ
+            ul(class="flex flex-col gap-[16px]") 
+              li(class="")
+                a(href="#" class="text-[16px] hover:text-[black] text-[#00000099] font-[400]") Tài Khoản       
+              li(class="")
+                a(href="#" class="text-[16px] hover:text-[black] text-[#00000099] font-[400]") Quản Lý Đơn Hàng         
+              li(class="")
+                a(href="#" class="text-[16px] hover:text-[black] text-[#00000099] font-[400]") Đơn Hàng   
+              li(class="")
+                a(href="#" class="text-[16px] hover:text-[black] text-[#00000099] font-[400]") Thanh Toán  
+
+          div(class="sm:w-auto w-[48%] sm:mt-[0] mt-[32px]")
+            h2(class="text-black font-[500] uppercase mb-[26px]") Tài nguyên
+            ul(class="flex flex-col gap-[16px]") 
+              li(class="")
+                a(href="#" class="text-[16px] hover:text-[black] text-[#00000099] font-[400]") Sách Miễn Phí      
+              li(class="")
+                a(href="#" class="text-[16px] hover:text-[black] text-[#00000099] font-[400]") Bài Viết          
+              li(class="")
+                a(href="#" class="text-[16px] hover:text-[black] text-[#00000099] font-[400]") Kiến Thức   
+              li(class="")
+                a(href="#" class="text-[16px] hover:text-[black] text-[#00000099] font-[400]") Youtube  
+
+        div(class="flex flex-wrap justify-between mt-[30px]")
+          div(class="md:w-auto w-[100%] text-[14px] font-[400] text-[#00000099] flex items-center justify-center md:mb-[0] mb-[20px]")
+            | 28.SHOP © 2024, All Rights Reserved
+          div(class="md:w-auto w-[100%] flex justify-center items-center gap-[12px]")
+            each img in imgList
+              +imgList(img)
+
+    //- End Footer
